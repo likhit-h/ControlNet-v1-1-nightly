@@ -147,7 +147,7 @@ def main(input_image, prompt, a_prompt, n_prompt, num_samples, image_resolution,
     detected_map, results, PIL_image=process(input_image, prompt, a_prompt, n_prompt, num_samples, image_resolution, ddim_steps, guess_mode, strength, scale, seed, eta)
         # PIL_image.save('image.jpg')
     gif_image = resize_image_gif(PIL_image)
-    gif_image = sample(gif_image)
+    gif_image, seed  = sample(gif_image)
     results.append(gif_image)
     return [detected_map]+results, gif_image
 
