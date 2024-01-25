@@ -93,7 +93,7 @@ def sample(
 def process(input_image, prompt, a_prompt, n_prompt, num_samples, image_resolution, ddim_steps, guess_mode, strength, scale, seed, eta):
     model_name = 'control_v11p_sd15_scribble'
     model = create_model(f'./models/{model_name}.yaml').cpu()
-    # model.load_state_dict(load_state_dict('./models/v1-5-pruned.ckpt', location='cuda'), strict=False)
+    model.load_state_dict(load_state_dict('./models/v1-5-pruned.ckpt', location='cuda'), strict=False)
     model.load_state_dict(load_state_dict(f'./models/{model_name}.pth', location='cuda'), strict=False)
     model = model.cuda()
     ddim_sampler = DDIMSampler(model)
